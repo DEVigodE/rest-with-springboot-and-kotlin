@@ -1,25 +1,19 @@
 package br.com.undersea.services
 
-import br.com.undersea.data.vo.v1.PersonVO
+import br.com.undersea.data.vo.PersonVO
 import br.com.undersea.exceptions.ResourceNotFoundException
 import br.com.undersea.mapper.DozerMapper
-import br.com.undersea.mapper.custom.PersonMapper
 import br.com.undersea.model.Person
 import br.com.undersea.repository.PersonRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 import java.util.logging.Logger
-import br.com.undersea.data.vo.v2.PersonVO as PersonVOV2
-
 
 @Service
 class PersonService {
 
     @Autowired
     private lateinit var repository: PersonRepository
-
-    @Autowired
-    private lateinit var mapper: PersonMapper
 
     private val logger = Logger.getLogger(PersonService::class.java.name)
 
@@ -40,12 +34,6 @@ class PersonService {
         logger.info("Creating one person with name ${person.firstName}!")
         var entity: Person = DozerMapper.parseObject(person, Person::class.java)
         return DozerMapper.parseObject(repository.save(entity), PersonVO::class.java)
-    }
-
-    fun createV2(person: PersonVOV2): PersonVOV2 {
-        logger.info("Creating one person with name ${person.firstName}!")
-        var entity: Person = mapper.mapVOToEntity(person)
-        return mapper.mapEntityToVO(repository.save(entity))
     }
 
     fun update(person: PersonVO): PersonVO {

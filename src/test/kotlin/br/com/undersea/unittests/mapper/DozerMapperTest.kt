@@ -1,6 +1,6 @@
 package br.com.undersea.unittests.mapper
 
-import br.com.undersea.data.vo.v1.PersonVO
+import br.com.undersea.data.vo.PersonVO
 import br.com.undersea.mapper.DozerMapper
 import br.com.undersea.model.Person
 import br.com.undersea.unittests.mapper.mocks.MockPerson
