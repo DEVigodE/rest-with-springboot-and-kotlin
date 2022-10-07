@@ -1,9 +1,15 @@
 package br.com.undersea.model
 
 import jakarta.persistence.*
+import lombok.AllArgsConstructor
+import lombok.EqualsAndHashCode
+import lombok.NoArgsConstructor
 
 @Entity
 @Table(name = "person")
+@AllArgsConstructor
+@NoArgsConstructor
+@EqualsAndHashCode
 data class Person(
 
     @Id

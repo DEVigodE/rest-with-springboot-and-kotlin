@@ -17,6 +17,7 @@
         <java.version>17</java.version>
         <kotlin.version>1.7.10</kotlin.version>
         <dozer.version>6.4.1</dozer.version>
+        <springdoc.version>2.0.0-M6</springdoc.version>
     </properties>
     <dependencies>
         <!-- JAVA KOTLIN -->
@@ -95,6 +96,11 @@
             <scope>runtime</scope>
             <optional>true</optional>
         </dependency>
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+            <version>${springdoc.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -136,7 +142,9 @@
                 <groupId>org.flywaydb</groupId>
                 <artifactId>flyway-maven-plugin</artifactId>
                 <configuration>
-                    <url>jdbc:mysql://localhost:3306/rest_with_spring_boot?useTimezone=true&amp;serverTimezone=UTC&amp;useSSL=false</url>
+                    <url>
+                        jdbc:mysql://localhost:3306/ldm_solar?useTimezone=true&amp;serverTimezone=UTC&amp;useSSL=false
+                    </url>
                     <user>root</user>
                     <password>admin123</password>
                 </configuration>

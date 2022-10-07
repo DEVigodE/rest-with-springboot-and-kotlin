@@ -42,7 +42,7 @@ class PersonService {
         return personVO
     }
 
-    fun create(person: PersonVO?): PersonVO {
+    fun create(person: PersonVO?) : PersonVO{
         if (person == null) throw RequiredObjectIsNullException()
         logger.info("Creating one person with name ${person.firstName}!")
         var entity: Person = DozerMapper.parseObject(person, Person::class.java)
@@ -52,7 +52,7 @@ class PersonService {
         return personVO
     }
 
-    fun update(person: PersonVO?): PersonVO {
+    fun update(person: PersonVO?) : PersonVO{
         if (person == null) throw RequiredObjectIsNullException()
         logger.info("Updating one person with ID ${person.key}!")
         val entity = repository.findById(person.key)
