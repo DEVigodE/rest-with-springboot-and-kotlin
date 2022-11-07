@@ -3,7 +3,7 @@ package br.com.undersea.unittests.mapper
 import br.com.undersea.data.vo.PersonVO
 import br.com.undersea.mapper.DozerMapper
 import br.com.undersea.model.Person
-import br.com.undersea.unittests.mapper.mocks.MockPerson
+import br.com.undersea.unittests.mocks.MockPerson
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test

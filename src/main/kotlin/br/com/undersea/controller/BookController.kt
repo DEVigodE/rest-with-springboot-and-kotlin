@@ -1,7 +1,7 @@
 package br.com.undersea.controller
 
-import br.com.undersea.data.vo.PersonVO
-import br.com.undersea.services.PersonService
+import br.com.undersea.data.vo.BookVO
+import br.com.undersea.services.BookService
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.media.ArraySchema
 import io.swagger.v3.oas.annotations.media.Content
@@ -14,24 +14,23 @@ import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
 @RestController
-@RequestMapping("/api/v1/person")
-@Tag(name = "People", description = "Endpoints for Managing People")
-class PersonController {
+@RequestMapping("/api/v1/book")
+@Tag(name = "Books", description = "Endpoints for Managing Books")
+class BookController {
 
     @Autowired
-    private lateinit var service: PersonService
-    // var service: PersonService = PersonService()
+    private lateinit var service: BookService
 
     @GetMapping(produces = [MediaType.APPLICATION_JSON_VALUE])
     @Operation(
-        summary = "Finds all People", description = "Finds all People",
-        tags = ["People"],
+        summary = "Finds all Books", description = "Finds all Books",
+        tags = ["Books"],
         responses = [
             ApiResponse(
                 description = "Success",
                 responseCode = "200",
                 content = [
-                    Content(array = ArraySchema(schema = Schema(implementation = PersonVO::class)))
+                    Content(array = ArraySchema(schema = Schema(implementation = BookVO::class)))
                 ]
             ),
             ApiResponse(
@@ -61,7 +60,7 @@ class PersonController {
             ),
         ]
     )
-    fun findAll(): List<PersonVO> {
+    fun findAll(): List<BookVO> {
         return service.findAll()
     }
 
@@ -70,14 +69,14 @@ class PersonController {
         produces = [MediaType.APPLICATION_JSON_VALUE]
     )
     @Operation(
-        summary = "Finds a Person", description = "Finds a Person",
-        tags = ["People"],
+        summary = "Finds a Book", description = "Finds a Book",
+        tags = ["Books"],
         responses = [
             ApiResponse(
                 description = "Success",
                 responseCode = "200",
                 content = [
-                    Content(schema = Schema(implementation = PersonVO::class))
+                    Content(schema = Schema(implementation = BookVO::class))
                 ]
             ),
             ApiResponse(
@@ -107,7 +106,7 @@ class PersonController {
             ),
         ]
     )
-    fun findById(@PathVariable(value = "id") id: Long): PersonVO {
+    fun findById(@PathVariable(value = "id") id: Long): BookVO {
         return service.findById(id)
     }
 
@@ -116,14 +115,14 @@ class PersonController {
         produces = [MediaType.APPLICATION_JSON_VALUE]
     )
     @Operation(
-        summary = "Adds a new Person", description = "Adds a new Person",
-        tags = ["People"],
+        summary = "Adds a new Book", description = "Adds a new Book",
+        tags = ["Books"],
         responses = [
             ApiResponse(
                 description = "Success",
                 responseCode = "200",
                 content = [
-                    Content(schema = Schema(implementation = PersonVO::class))
+                    Content(schema = Schema(implementation = BookVO::class))
                 ]
             ),
             ApiResponse(
@@ -143,8 +142,8 @@ class PersonController {
             ),
         ]
     )
-    fun create(@RequestBody person: PersonVO): PersonVO {
-        return service.create(person)
+    fun create(@RequestBody book: BookVO): BookVO {
+        return service.create(book)
 
     }
 
@@ -153,14 +152,14 @@ class PersonController {
         produces = [MediaType.APPLICATION_JSON_VALUE]
     )
     @Operation(
-        summary = "Updates a person's information", description = "Updates a person's information",
-        tags = ["People"],
+        summary = "Updates a book's information", description = "Updates a book's information",
+        tags = ["Books"],
         responses = [
             ApiResponse(
                 description = "Success",
                 responseCode = "200",
                 content = [
-                    Content(schema = Schema(implementation = PersonVO::class))
+                    Content(schema = Schema(implementation = BookVO::class))
                 ]
             ),
             ApiResponse(
@@ -190,8 +189,8 @@ class PersonController {
             ),
         ]
     )
-    fun update(@RequestBody person: PersonVO): PersonVO {
-        return service.update(person)
+    fun update(@RequestBody book: BookVO): BookVO {
+        return service.update(book)
     }
 
     @DeleteMapping(
@@ -199,8 +198,8 @@ class PersonController {
         produces = [MediaType.APPLICATION_JSON_VALUE]
     )
     @Operation(
-        summary = "Deletes a person", description = "Deletes a person",
-        tags = ["People"],
+        summary = "Deletes a book", description = "Deletes a book",
+        tags = ["Books"],
         responses = [
             ApiResponse(
                 description = "No Content", responseCode = "204", content = [

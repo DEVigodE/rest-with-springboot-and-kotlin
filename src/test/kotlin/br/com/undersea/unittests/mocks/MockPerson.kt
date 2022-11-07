@@ -1,4 +1,4 @@
-package br.com.undersea.unittests.mapper.mocks
+package br.com.undersea.unittests.mocks
 
 import br.com.undersea.data.vo.PersonVO
 import br.com.undersea.model.Person

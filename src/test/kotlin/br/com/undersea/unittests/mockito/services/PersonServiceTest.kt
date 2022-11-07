@@ -1,9 +1,9 @@
-package br.com.undersea.mockito.services
+package br.com.undersea.unittests.mockito.services
 
 import br.com.undersea.exceptions.RequiredObjectIsNullException
 import br.com.undersea.repository.PersonRepository
 import br.com.undersea.services.PersonService
-import br.com.undersea.unittests.mapper.mocks.MockPerson
+import br.com.undersea.unittests.mocks.MockPerson
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
